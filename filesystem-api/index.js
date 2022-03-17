@@ -10,7 +10,8 @@ const root = process.cwd();
 // Port for localhost
 const PORT = 4000;
 
-// Home Page
+// EndPoint that is HomePage
+// =================================================================
 app.get('/', function(request, response) {
 
   let html = "";
@@ -21,6 +22,9 @@ app.get('/', function(request, response) {
   response.send(html)
 
 })
+
+// EndPoint to read all files in particular folder called files
+// =================================================================
 
 app.get('/readfiles', function(request, response){
 
@@ -44,6 +48,9 @@ app.get('/readfiles', function(request, response){
 
 })
 
+// EndPoint to create file in particular folder called files
+// =================================================================
+
 app.get('/createfile', function (request, response) {
   // Get current time and date
   const today = new Date();
@@ -56,7 +63,7 @@ app.get('/createfile', function (request, response) {
     // Send current time 
     response.send('File created with filename -> ' + fileName + '<br> <a href="/">Go Back</a>');
 
-    // Create a file
+    // Create a file with current date time as file name
     fs.writeFile(path.join(root, "files/"+fileName), today.toLocaleString(), (err) => {
         if (err) throw err;
         console.log('File Created!!');
