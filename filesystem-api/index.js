@@ -35,15 +35,16 @@ app.get('/readfiles', function(request, response){
       }
       console.log(dirContent);
 
-      let html="<h2>List of Files in this directory</h2><br><a href=\"/\">Go Back</a><br><br>";
-      dirContent.forEach((file)=>{
-        html += `<a href="${root+"/files/"+file}">${file}</a><br>`
-      })
+      // let html="<h2>List of Files in this directory</h2><br><a href=\"/\">Go Back</a><br><br>";
+      // dirContent.forEach((file)=>{
+      //   html += `<a href="${root+"/files/"+file}">${file}</a><br>`
+      // })
 
-      console.log(html);
+      // console.log(html);
 
-      response.set('Content-Type', 'text/html');
-      response.send(Buffer.from(html));
+      // response.set('Content-Type', 'text/html');
+      // response.send(Buffer.from(html));
+      response.send(dirContent);
   })
 
 })
